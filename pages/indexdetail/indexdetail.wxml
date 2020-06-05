@@ -1,0 +1,16 @@
+<!--pages/indexdetail/indexdetail.wxml-->
+<view  class='blue_header_note'><text class='blue_header'>于系统中检索到如下内容</text></view>
+<view wx:for="{{people_list}}" class="maincard">
+  <image src="{{item.url}}" class="imageview" mode="aspectFill"></image>
+  <view class="rightbox">
+    <view style="margin-bottom:10rpx;"><text class='rightboxtext'>姓名:{{item.name}}</text></view>
+    <view style="margin-bottom:10rpx;">
+      <text class='rightboxtext'>{{item.age}}岁 | {{item.gender}} | 身高{{item.height}}cm</text>
+    </view>
+    <view><text class='rightboxtext'>区域: {{item.region}}</text></view>
+    <view><text class='rightboxtext'>救助单位: {{item.aid_department}}</text></view>
+    <view><text class='rightboxtext'>发布日期： {{item.publish_date}}</text></view>
+    <view><text class='rightboxtext'>相似度： {{item.similarity}}</text></view>
+  </view>
+</view>
+<view class='blue_header_note'><text class='blue_header'>如需获取更多帮助请联系本地公安局</text></view>

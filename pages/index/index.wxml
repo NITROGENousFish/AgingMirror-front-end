@@ -1,0 +1,21 @@
+<!-- 背景图 -->
+
+<view class='root'>
+  <image class="background" src="../icons/homepage.jpg" mode='aspectFit'></image>
+  <view class='constriction_card'>
+    <text class='blue_header'>孩子走失怎么办?</text>
+    <view class='line'></view>
+    <view class='content'><view class='dot'></view><text style="font-weight: bold;color: #1389c0;">立刻报警</text><text>，无需等待24小时</text></view>
+    <view class='content'><view class='dot'></view><text>等待警方或前往公安机关报案</text></view>
+    <view class='content'><view class='dot'></view><text>提供体貌特征后，警方线上线下全力侦查</text></view>
+    <view class='content'><view class='dot'></view><text>同时警方发布至公安系统，发动群众寻找</text></view>
+  </view>
+  <view class='constriction_card'>
+    <text class='blue_header'>失散多年如何寻亲？</text>
+    <view class='line'></view>
+    <view class='content'><view class='dot'></view><text>前往公安机关进行</text><text style="font-weight: bold;color: #1389c0;">免费采血</text></view>
+    <view class='content'><view class='dot'></view><text>公安机关根据血样进行DNA比对</text></view>
+  </view>
+  <button class='button' bindtap="getPicUpload">图片寻人</button>
+</view>
+

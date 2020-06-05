@@ -1,0 +1,13 @@
+<!--userpage/userpage.wxml-->
+<view class="whole_page">
+  <!--登录标签-->
+  <view class="unlogin-bar">
+    <view class="user_image">
+      <image src="../icons/user_unlogin_icon.png" src="{{userInfo.avatarUrl}}" style="width:120rpx;height:120rpx;"></image>
+    </view>
+    <view class="flex_space"></view>
+    <view class="unlogin_content">{{userInfo.nickName}}</view>
+  </view>
+  <view class="history_pic_content">项目介绍</view>
+  
+</view>

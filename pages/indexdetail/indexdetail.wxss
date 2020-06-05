@@ -1,0 +1,36 @@
+/* pages/indexdetail/indexdetail.wxss */
+.maincard{
+  border-radius: 20rpx;
+  margin: 20rpx;
+  display: flex;
+  border: 3rpx;
+  background-color: lightgray;
+  align-items: center;     /* 垂直居中 */
+}
+
+.imageview{
+  margin: 10rpx;
+  border-radius: 20rpx;
+  height:300rpx;
+  width:250rpx;
+  margin-right: 20rpx;
+  
+}
+.blue_header{
+  font-weight: bold;
+  color: #1389c0;
+  font-family: sans-serif;
+  font-size: 15pt;
+}
+.blue_header_note{
+  margin: 20rpx;
+  display: flex;
+  justify-content: center;
+}
+.rightbox{
+  margin: 10rpx;
+}
+
+.rightboxtext{
+  font-size: 90%;
+}

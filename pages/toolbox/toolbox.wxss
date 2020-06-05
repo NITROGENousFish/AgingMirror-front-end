@@ -1,0 +1,48 @@
+/* toolbox/toolbox.wxss */
+.functionblock{
+  border-radius: 10rpx;
+  display: flex;
+  height: 200rpx;
+  width: 330rpx;
+  justify-content: space-between;
+}
+.functionblocktest{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.characterLeft{
+  padding: 20rpx;
+  text-align: left;
+}
+.characterRight{
+  padding: 20rpx;
+  text-align: right;
+}
+
+.lightText{
+  font-size: 25rpx;
+}
+
+.boldText{
+  font-weight: bold;
+}
+
+
+.two-block{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.videosetting{
+  width:690rpx;
+  height:390rpx; 
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  border-radius: 10rpx;
+}

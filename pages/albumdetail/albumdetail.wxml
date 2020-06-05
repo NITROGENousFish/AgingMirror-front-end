@@ -1,0 +1,66 @@
+
+<!-- 头部 -->
+<view class="albumHeader" style="background-color:#424b51;">
+  <view class="upperHeader">
+    <!-- 左面的文字 -->
+    <view style="flex:7;flex-direction: column; ">
+      <view>
+        <text style="color:white;font-weight: bold;font-size: 40rpx;">{{page_header.albumname}}</text>
+      </view>
+      <view>
+        <text style="color:#bababa; font-size: 25rpx;">{{page_header.totalsum}}张照片</text>
+      </view>
+    </view>
+    <!-- 设置相册icon -->
+    <view style="flex:1;">
+      <image src="../icons/setting_white.png" style="width:70rpx; height:70rpx;"></image>
+    </view>
+  </view>
+
+  <view class="avaliableState">
+    <!-- 可见性判定 -->
+    <block wx:if="{{page_header.visibility}}">
+      <image src="../icons/eyes_white.png" style="width:25rpx; height:25rpx;"></image>
+      <text style="color:#bababa; font-size: 25rpx;">所有人可见</text>
+    </block>
+    <block wx:else>
+      <image src="../icons/lock_white.png" style="width:50rpx; height:50rpx;"></image>
+      <text style="color:#bababa; font-size: 25rpx;">仅自己可见</text>
+    </block>
+  </view>
+
+</view>
+
+<!-- 主题 -->
+<view class="albumContent" style="background-color:white;">
+  <!-- 头部菜单栏 -->
+  <view class="contentHeader">
+    <!-- 呈现样式判定 -->
+    <block wx:if="{{integral_layout_state}}">
+      <view style="margin-right:40rpx;" ontap="integralOn">
+        <image src="../icons/integral-fill.png" style="width:50rpx; height:50rpx;"></image>
+      </view>
+      <view style="margin-right:40rpx;" ontap="layoutOn">
+        <image src="../icons/all.png" style="width:50rpx; height:50rpx;"></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view style="margin-right:40rpx;">
+        <image src="../icons/integral.png" style="width:50rpx; height:50rpx;" ontap="integralOn"></image>
+      </view>
+      <view style="margin-right:40rpx;">
+        <image src="../icons/all-fill.png" style="width:50rpx; height:50rpx;" ontap="layoutOn"></image>
+      </view>
+    </block>
+  </view>
+  
+  <!-- 正文展示内容 integralOn -->
+  <view animation="{{integralAnimation}}" wx:if="{{integral_layout_state}}" style="background-color:#f7f7f7;padding:30rpx">
+  在这里嵌套正文展示内容模板
+  </view>
+
+  <!-- 正文展示内容 layoutOn -->
+  <view animation="{{layoutAnimation}}" wx:else style="background-color:#f7f7f7;padding:30rpx">
+  haha嵌套平铺模式模板
+  </view>
+</view>

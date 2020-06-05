@@ -1,0 +1,91 @@
+<!-- 工具箱界面 -->
+<!-- 风格迁移主框体 -->
+<view>
+  <!-- 四宫格功能区 -->
+  <view style="padding:30rpx;">
+    <!-- 两宫格第一行 -->
+    <view class="two-block" style="margin-bottom: 20rpx;">
+      <!-- 功能1 -->
+      <view class="functionblock" style="background-color: #ffcffd;">
+        <!--左面的部分文字 -->
+        <view class="functionblocktest">
+          <view style="padding-left:20rpx;">
+            <text>风格迁移</text>
+          </view>
+          <view style="padding-left:20rpx;">
+            <text class="lightText">艺术蒙版快速用</text>
+          </view>
+        </view>
+        <!-- 右面部分图片 -->
+        <view>
+          <image src="../icons/function_test.png" style="width:120rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+        </view>
+      </view>
+      <!-- 功能2 -->
+      <view class="functionblock" style="background-color: #a8e8e4;">
+        <!--左面的部分文字 -->
+        <view class="functionblocktest">
+          <view style="padding-left:20rpx;">
+            <text>人脸老化</text>
+          </view>
+          <view style="padding-left:20rpx;">
+            <text class="lightText">年轻的自己</text>
+          </view>
+        </view>
+        <!-- 右面部分图片 -->
+        <view>
+          <image src="../icons/function_test.png" style="width:120rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 两宫格第二行 -->
+    <view class="two-block">
+      <!-- 功能3 -->
+      <view class="functionblock" style="background-color: #ffcbba;">
+        <!--左面的部分文字 -->
+        <view class="functionblocktest">
+          <view style="padding-left:20rpx;">
+            <text>人脸比对</text>
+          </view>
+          <view style="padding-left:20rpx;">
+            <text class="lightText">看看像不像</text>
+          </view>
+        </view>
+        <!-- 右面部分图片 -->
+        <view>
+          <image src="../icons/function_test.png" style="width:120rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+        </view>
+      </view>
+      <!-- 功能4 -->
+      <view class="functionblock" style="background-color: #c4c6fd;">
+        <!--左面的部分文字 -->
+        <view class="functionblocktest">
+          <view style="padding-left:20rpx;">
+            <text>团圆系统</text>
+          </view>
+          <view style="padding-left:20rpx;">
+            <text class="lightText">寻找走失儿童</text>
+          </view>
+        </view>
+        <!-- 右面部分图片 -->
+        <view>
+          <image src="../icons/function_test.png" style="width:120rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 剩余的块 -->
+  <view style="padding:30rpx;">
+    <text style="font-weight: bold;">热门应用</text>
+    <view class="videosetting" style="  background-color: lightblue;">
+      <text style="font-size: x-large;">这里应该是video\n690rpx*390rpx\n16：9的视频或者git\n请删除该view的背景色\n换video标签</text>
+    </view>
+    <view class="videosetting" style="  background-color: lightgreen;">
+      <text style="font-size: x-large;">这里应该是video\n690rpx*390rpx\n16：9的视频或者git\n请删除该view的背景色\n换video标签</text>
+    </view>
+    <view class="videosetting" style="  background-color: lightyellow;">
+      <text style="font-size: x-large;">这里应该是video\n690rpx*390rpx\n16：9的视频或者git\n请删除该view的背景色\n换video标签</text>
+    </view>
+  </view>
+
+</view>

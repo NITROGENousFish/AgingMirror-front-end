@@ -1,0 +1,45 @@
+<!--album/album.wxml-->
+
+<!-- 相册模板 -->
+<view wx:for="{{template_array}}" data-index="{{index}}" bindtap="onClickTemplate">
+  <view class="templateBorder" style="background-color:{{item.backgroundcolor}}">
+    <image src="../icons/icon.jpg" style="width:170rpx;height:170rpx;border-top-left-radius:10rpx;border-top-right-radius:20rpx;border-bottom-left-radius:10rpx;border-bottom-right-radius:20rpx;"></image>
+    <view class="templateBigBlock">
+      <text class="characterLeft boldText">{{item.albumname}}</text>
+      <block wx:if="{{item.visibility}}">
+        <text class="characterLeft lightText">所有人均可见</text>
+      </block>
+      <block wx:else>
+        <text class="characterLeft lightText">仅自己可见</text>
+      </block>
+    </view>
+    <view class="templateSmallBlock">
+      <text class="characterRight lightText">{{item.createtime}}</text>
+      <text class="characterRight lightText">{{item.totalsum}}张</text>
+    </view>
+  </view>
+</view>
+<!-- 提示语 -->
+<view style="display: flex;justify-content: center;">
+  <text style="color:#bebebf;text-align: center;">你最多可以拥有5个相册，每个相册20个成员</text>
+</view>
+
+
+
+
+
+<!-- 顶端私人相册创建条 -->
+<view style="display: flex;justify-content: center;margin-top: 60rpx;">
+  <image src="../icons/add_icon.png" style="width:100rpx;height:100rpx;align-self: center;" bindtap="onClickSwitchHiddenVisability"></image>
+</view>
+
+<modal hidden="{{hiddenmodalput}}" title="请输入相册信息" confirm-text="提交" cancel-text="取消" bindcancel="onClickSwitchHiddenVisability" bindconfirm="uploadAlbumInfo">
+  <!-- 这里可以自由选择你的输入框类型<input type='text' placeholder="请输入内容" auto-focus/> -->
+  <view>
+    <input name='albumname' style="margin-top: 20rpx;margin-bottom: 20rpx;" placeholder="请输入相册名称" bindblur='newAlbumNameChange'></input>
+    <radio-group name='visabilitygroup' style="margin-top: 20rpx;margin-bottom: 20rpx;" bindchange="newAlbumVisiblityChange">
+      <radio value="true" checked="true">相册他人可见</radio>
+      <radio value="false">相册仅自己可见</radio>
+    </radio-group>
+  </view>
+</modal>

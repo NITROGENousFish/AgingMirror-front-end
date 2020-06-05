@@ -1,0 +1,56 @@
+/* userpage/userpage.wxss */
+.whole_page{
+  margin: 30rpx;
+}
+.unlogin-bar{
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  border-radius: 20rpx;
+  
+}
+.flex_space{
+  flex:1;
+}
+.user_image{
+  flex:1;
+}
+
+.unlogin_content{
+  display: flex;
+  flex:5;
+  align-items: center;
+  justify-content: left;
+}
+
+.history_pic_content{
+  font-size: 40rpx;
+  margin-top: 20rpx;
+  font-weight: bold;
+}
+
+.album_arena{
+  display: flex;
+  flex-direction: column;
+  padding: 50rpx;
+}
+.album_arena_pic{
+  display: flex;
+  flex: 3 3 ;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin-top:50rpx;
+  margin-bottom: 150rpx;
+}
+
+.album_arena_button{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rpx;
+  background-color: #e95869;
+  color: whitesmoke;
+}
