@@ -72,6 +72,7 @@ Component({
     template_array: null,
     newAlbumName: null,
     newAlbumVisiblity: true,
+    able_add_more_album: true,
 
   },
 
@@ -100,7 +101,7 @@ Component({
         }
       })
       wx.request({
-        url: 'http://127.0.0.1:8000/faceaging/album',
+        url: app.globalData['_ServerURLPrefix'] +'/faceaging/album',
         header: { "Content-Type": "application/x-www-form-urlencoded", "HTTP_SKEY": currentkey },
         method: 'GET',
         data: {
@@ -112,6 +113,11 @@ Component({
           that.setData({
             template_array: res.data
           })
+          if (res.data.length >= 5) {
+            that.setData({
+              able_add_more_album: false
+            })
+          }
         }
       })
       console.log("刷新列表完成")
@@ -168,9 +174,9 @@ Component({
       var in_newAlbumVisiblity = that.data.newAlbumVisiblity
       // this.data.template_array.lenth
       //上传到服务器同步设置
-      //设置python接受的时间格式："%Y-%m-%d %H:%M:%S"
-      var current_date = new Date()
-      var time_for_python = new String(current_date.getFullYear() + "-" + current_date.getMonth() + "-" + current_date.getDate() + " " + current_date.getHours() + ":" + current_date.getMinutes() + ":" + current_date.getSeconds())
+      // //设置python接受的时间格式："%Y-%m-%d %H:%M:%S"
+      // var current_date = new Date()
+      // var time_for_python = new String(current_date.getFullYear() + "-" + current_date.getMonth() + "-" + current_date.getDate() + " " + current_date.getHours() + ":" + current_date.getMinutes() + ":" + current_date.getSeconds())
       var currentkey = null
       wx.getStorage({//获取本地缓存
         key: "secretkey",
@@ -184,12 +190,12 @@ Component({
       //向服务器请求添加数据，携带用户当前的key作为验证
 
       wx.request({
-        url: 'http://127.0.0.1:8000/faceaging/album',
+        url: app.globalData['_ServerURLPrefix'] +'/faceaging/album',
         header: { "Content-Type": "application/x-www-form-urlencoded", "HTTP_SKEY": currentkey },
         data: {
           albumname: that.data.newAlbumName,
           visibility: that.data.newAlbumVisiblity,
-          createtime: time_for_python,
+          // createtime: time_for_python,
           nickname: user_nickname
         },
         method: 'POST',

@@ -6,7 +6,8 @@ App({
     wx.setStorageSync('logs', logs)
   },
   globalData: {
-    userInfo: null  //用户数据为空
+    userInfo: null,  //用户数据为空
+    _ServerURLPrefix: 'http://127.0.0.1:8000',
   },
   getUserInfo: function (cb) {
     var that = this
@@ -32,7 +33,7 @@ App({
             //发起网络请求
             console.log("wx.request")
             wx.request({
-              url: 'http://127.0.0.1:8000/faceaging/onLogin',
+              url: that.globalData['_ServerURLPrefix'] +'/faceaging/onLogin',
               data: {
                 code: res.code
               },
@@ -92,8 +93,15 @@ App({
             })
             wx.getUserInfo({
               success: function (res) {
+                console.log("getUserInfo 成功获取用户信息")
                 that.globalData.userInfo = res.userInfo
-                typeof cb == "function" && cb(that.globalData.userInfo)   //判断，如果传入的参数cb是一个函数，那么就执行&&后面的指令，否则不执行
+                console.log(that.globalData.userInfo)
+                typeof cb == "function" && cb(that.globalData.userInfo)   //判断，如果传入的参数cb是一个函数，那么就执行&&后面的指令，否则不执行   
+
+              },
+              fail: function(res){
+                console.log("getUserInfo失败")
+                console.log(res) 
               }
             })
 

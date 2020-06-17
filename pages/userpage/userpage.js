@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}  //当前登录的用户数据存放.内容获取在下方OnLoad函数中
+   //当前登录的用户数据存放.内容获取在下方OnLoad函数中
   },
 
   /**
@@ -73,7 +73,23 @@ Page({
 Component({
   lifetimes: {
     attached: function () {
-      var that = this     //指向OnLoad函数
+      var that = this
+      wx.getSetting({
+        success: function (res) {
+          if (res.authSetting['scope.userInfo']) {
+            wx.getUserInfo({
+              success: function (res) {
+                console.log(res.userInfo)
+                console.log("用户已经授权，将取消按钮")//用户已经授权过
+                that.setData({
+                  isAuthorized:true,
+                })
+              }
+            })
+          }
+        }
+      })
+
       console.log('Component:User Center Page | lifetimes: attached')
       app.getUserInfo(function (userInfo) {     //调用app.js中的函数来更新用户数据，并且后端要确认用户登录
         that.setData({    //更新数据
@@ -83,10 +99,15 @@ Component({
     }
   },
   data:{
-    userInfo: {}
+    userInfo: {},
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isAuthorized:null
   },
   pageLifetimes: {
     show() {
+      console.log("用户页面显示")
+      console.log(app.globalData.isAuthorized)
+      
       if (typeof this.getTabBar === 'function' &&
         this.getTabBar()) {
         this.getTabBar().setData({
@@ -95,4 +116,23 @@ Component({
       }
     }
   },
+  methods:{
+    bindGetUserInfo: function (e) {
+      var that = this
+      console.log(e.detail.userInfo)
+      if (e.detail.userInfo) {
+        // wx.redirectTo({
+        //   url: '../userpage/userpage',
+        // })
+        app.getUserInfo(function (userInfo) {     //调用app.js中的函数来更新用户数据，并且后端要确认用户登录
+          that.setData({    //更新数据
+            userInfo: userInfo,
+            isAuthorized:true
+          })
+        })
+      } else {
+        //用户按了拒绝按钮
+      }
+    }
+  }
 })

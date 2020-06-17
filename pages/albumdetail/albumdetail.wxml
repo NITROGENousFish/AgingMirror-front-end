@@ -1,4 +1,3 @@
-
 <!-- 头部 -->
 <view class="albumHeader" style="background-color:#424b51;">
   <view class="upperHeader">
@@ -13,7 +12,7 @@
     </view>
     <!-- 设置相册icon -->
     <view style="flex:1;">
-      <image src="../icons/setting_white.png" style="width:70rpx; height:70rpx;"></image>
+      <image src="../icons/setting_white.png" style="width:70rpx; height:70rpx;" ontap="albumStatusSetting"></image>
     </view>
   </view>
 
@@ -53,14 +52,176 @@
       </view>
     </block>
   </view>
-  
+
   <!-- 正文展示内容 integralOn -->
   <view animation="{{integralAnimation}}" wx:if="{{integral_layout_state}}" style="background-color:#f7f7f7;padding:30rpx">
-  在这里嵌套正文展示内容模板
+    <view style="display: flex;justify-content: center;flex-direction: column;" wx:if="{{page_header.totalsum == 0}}">
+      <text style="text-align: center;">什么都还没有哦~</text>
+      <text style="text-align: center;">点击“+”添加一点吧~</text>
+    </view>
+    <view wx:else>
+      <view class="integral-goroup" wx:for="{{albumdetail_full_data}}" wx:for-index="index"  wx:for-item="item">
+        <!-- 左半面日期，灰色背景 -->
+        <view style="background-color:transparent,padding-left: 20rpx;padding-right:20rpx;">
+          <view>
+            <text>{{item.createtimeMonth}}月</text>
+          </view>
+          <view>
+            <text>{{item.createtimeDay}}日</text>
+          </view>
+        </view>
+        <!-- 右半部分 -->
+        <view class="integral-goroup-in-right">
+          <!--第一行-->
+          <view style="display:flex;justify-content: space-between;">
+            <!-- 用户头像 -->
+            <view>
+              <image src="{{userAvator}}" style="border-radius:50rpx;width:100rpx;height:100rpx;"></image>
+            </view>
+            <view style="display:flex;flex-direction: column; margin-left: 30rpx;">
+              <view style="display:flex;align-items: center;margin:5rpx;">
+                <text style="font-size: 0.8em;">{{usernickname}}</text>
+              </view>
+              <view style="display:flex;align-items: center;margin:5rpx;">
+                <text style="font-size: 0.8em;color:gray;">{{item.createtimeTime}}</text>
+              </view>
+            </view>
+            <!-- 包含有删除当前记录的功能 写bindtap-->
+            <view style="margin-left:50rpx;" ontap="albumContentSetting" data-index="{{index}}" >
+              <image src="../icons/more.png" style="width:70rpx;height:70rpx;"></image>
+            </view>
+          </view>
+          <!-- 第二行 -->
+          <view>
+            <text style="font-size: 0.8em;">{{item.upload_content}}</text>
+          </view>
+          <!-- 图片展示区域到末尾 -->
+          <view>
+            <block wx:if="{{item.item_counter==1}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==2}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==3}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[2]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==4}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[2]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[3]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==5}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[2]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[3]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[4]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==6}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[2]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[3]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[4]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[5]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==7}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[2]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[3]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[4]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[5]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[6]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==8}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[2]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[3]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[4]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[5]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[6]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[7]}}" mode="aspectFit"></image>
+            </block>
+            <block wx:if="{{item.item_counter==9}}">
+              <image src="{{pic_ip_prefix+item.url_list[0]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[1]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[2]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[3]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[4]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[5]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[6]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[7]}}" mode="aspectFit"></image>
+              <image src="{{pic_ip_prefix+item.url_list[8]}}" mode="aspectFit"></image>
+            </block>
+          </view>
+          <!-- 评论，点赞，先不加了 -->
+        </view>
+
+      </view>
+
+      <!-- 这里需要添加一些留白，给固定化的图标 -->
+      <view style="background: transparent; margin: 30rpx;">
+        <button class='button' bindtap="goTop">
+          <view>
+            <text>到达了相册的尽头</text>
+          </view>
+          <view>
+            <text>点击回到顶部</text>
+          </view>
+        </button>
+      </view>
+    </view>
   </view>
 
   <!-- 正文展示内容 layoutOn -->
   <view animation="{{layoutAnimation}}" wx:else style="background-color:#f7f7f7;padding:30rpx">
-  haha嵌套平铺模式模板
+    <view style="display: flex;justify-content: center;flex-direction: column;" wx:if="{{page_header.totalsum == 0}}">
+      <text style="text-align: center;">什么都还没有哦~</text>
+      <text style="text-align: center;">点击“+”添加一点吧~</text>
+    </view>
+    <view wx:else class="album-container">
+      <view class="item-group" wx:for="{{layoutList}}" wx:for-item="group">
+        <block wx:for="{{group}}" wx:for-item="item">
+          <block wx:if="{{item}}">
+            <image bindtap="enterPreviewMode" bindlongtap="showActions" data-src="{{pic_ip_prefix+item}}" class="album-item" src="{{pic_ip_prefix+item}}" mode="aspectFill" style="width:240rpx;height:240rpx;"></image>
+          </block>
+          <block wx:else>
+            <view class="album-item empty"></view>
+          </block>
+        </block>
+      </view>
+      <!-- 这里需要添加一些留白，给固定化的图标 -->
+      <view style="background: transparent; margin: 30rpx;">
+        <button class='button' bindtap="goTop">
+          <view>
+            <text>到达了相册的尽头</text>
+          </view>
+          <view>
+            <text>点击回到顶部</text>
+          </view>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 上传图片的VIEW请固化在屏幕固定位置 -->
+  <view class="upload-image" bindtap="onClickSwitchHiddenVisability">
+    <image src="../icons/add_icon.png" style="width:130rpx;height:130rpx;align-self: center;" mode="aspectFit"></image>
   </view>
 </view>
+
+
+
+<modal hidden="{{hiddenmodalput}}" title="上传图片内容" confirm-text="提交" cancel-text="取消" bindcancel="onClickSwitchHiddenVisability" bindconfirm="chooseImage">
+  <!-- 这里可以自由选择你的输入框类型<input type='text' placeholder="请输入内容" auto-focus/> -->
+  <view>
+    <input name='albumname' style="margin-top: 20rpx;margin-bottom: 20rpx;" placeholder="这一刻想分享点什么" bindblur='newPicLogInfoChange'></input>
+  </view>
+</modal>

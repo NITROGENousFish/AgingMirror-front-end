@@ -25,13 +25,13 @@
 </view>
 
 
-
-
-
 <!-- 顶端私人相册创建条 -->
+<block wx:if="{{able_add_more_album}}">
 <view style="display: flex;justify-content: center;margin-top: 60rpx;">
   <image src="../icons/add_icon.png" style="width:100rpx;height:100rpx;align-self: center;" bindtap="onClickSwitchHiddenVisability"></image>
 </view>
+</block>
+
 
 <modal hidden="{{hiddenmodalput}}" title="请输入相册信息" confirm-text="提交" cancel-text="取消" bindcancel="onClickSwitchHiddenVisability" bindconfirm="uploadAlbumInfo">
   <!-- 这里可以自由选择你的输入框类型<input type='text' placeholder="请输入内容" auto-focus/> -->

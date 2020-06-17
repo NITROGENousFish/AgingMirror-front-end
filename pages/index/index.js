@@ -44,7 +44,7 @@ Component({
           })
           console.log("正在上传图片")
           wx.uploadFile({
-            url: 'http://127.0.0.1:8000/faceaging/findlostpeople',
+            url: app.globalData['_ServerURLPrefix'] +'/faceaging/findlostpeople',
             filePath: tempFilePaths[0],
             name: 'portrait',
             success: function(res){

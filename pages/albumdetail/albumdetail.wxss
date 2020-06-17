@@ -36,3 +36,57 @@
   justify-content: flex-end;
 }
 
+.item-group {
+    display: flex;
+    height: 240rpx;
+}
+
+.album-item {
+    width:240rpx;
+    height:240rpx;
+    flex: 1;
+    margin: 0.1rem;
+    background: #333;
+    text-align: center;
+    line-height: 6.66rem;
+}
+
+.album-item.empty {
+    background: transparent;
+    width:240rpx;
+    height:240rpx;
+    flex: 1;
+    margin: 0.1rem;
+    text-align: center;
+    line-height: 6.66rem;
+}
+
+.upload-image{
+  position: fixed;
+  bottom: 10rpx;
+  right: 20rpx; 
+}
+.button{
+  width: 60%;
+  background-color: gray;
+  color: white;
+}
+
+.integral-goroup{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 30rpx;
+}
+
+.integral-goroup-in-right{
+  display:flex;
+  background-color:white;
+  padding:20rpx;
+  flex-direction: column;
+  border-top-right-radius: 20rpx;
+  border-bottom-left-radius:20rpx;
+  border-bottom-right-radius: 20rpx;
+  justify-content: space-between;
+  width:80%; 
+}
