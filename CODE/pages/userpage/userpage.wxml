@@ -1,0 +1,71 @@
+<!--userpage/userpage.wxml-->
+<view class="whole_page">
+  <!--登录标签-->
+  <view class="unlogin-bar">
+    <view class="user_image">
+      <image src="../icons/user_unlogin_icon.png" src="{{userInfo.avatarUrl}}" style="width:120rpx;height:120rpx;"></image>
+    </view>
+    <view class="flex_space"></view>
+    <view class="unlogin_content">{{userInfo.nickName}}</view>
+  </view>
+  <block wx:if="{{!isAuthorized}}">
+    <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+    <view wx:else>请升级微信版本</view>
+  </block>
+
+  <view class="history_pic_content">项目介绍</view>
+  <view class='constriction_card'>
+    <text class='blue_header'>我们是谁？</text>
+    <view class='line'></view>
+    <image src="../icons/icon.jpg" style="width:40%; margin-left:30%" mode="aspectFit"></image>
+    <view class='content'>
+      <view class='dot'></view>
+      <text style="font-weight: bold;">时光幻镜</text>
+    </view>
+    <view class='content'>
+      <view class='dot'></view>
+      <text>来自北京邮电大学<text style="font-weight: bold;color: #1389c0;">软件学院</text>的项目团队</text>
+    </view>
+    <view class='content'>
+      <view class='dot'></view>
+      <text>致力于将人工智能技术应用到<text style="font-weight: bold;color: #1389c0;">走失人员找回</text>与
+      <text style="font-weight: bold;color: #1389c0;">娱乐应用</text>中</text>
+    </view>
+  </view>
+  <view class='constriction_card'>
+    <text class='blue_header'>核心功能</text>
+    <view class='line'></view>
+    <image src="../icons/userpage3.jpg" style="width:100%" mode="aspectFit"></image>    
+    <view class='content'>
+      <view class='dot'></view>
+      <text>项目主要集成有</text>
+    </view>
+    <view class='content'>
+      <text style="font-weight: bold;color: #1389c0;">人脸风格迁移、人脸老化、皱纹融合、跨年龄人脸识别、颜龄监测、团圆系统</text>
+    </view>
+    
+    <view class='content'>
+      <view class='dot'></view>
+      <text>并且贴心的添加了相册功能</text>
+    </view>
+  </view>
+  <view class='constriction_card'>
+    <text class='blue_header'>技术架构</text>
+    <view class='line'></view>
+    <image src="../icons/userpage2.jpg" style="width:100%" mode="aspectFit"></image>
+    <view class='content'>
+      <view class='dot'></view>
+      <text>项目采用<text style="font-weight: bold;color: #1389c0;">三层C/S架构</text></text>
+    </view>
+    <view class='content'>
+      <view class='dot'></view>
+      <text>分为</text><text style="font-weight: bold;color: #1389c0;">小程序应用服务器</text>与
+      <text style="font-weight: bold;color: #1389c0;">算法服务器</text>
+    </view>
+    <view class='content'>
+      <view class='dot'></view>
+      <text>高度模块化，良好的接口规范，易于扩展</text>
+    </view>
+  </view>
+  <view style="margin:50rpx;"><text>.</text></view>
+</view>

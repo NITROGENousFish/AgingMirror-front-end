@@ -1,0 +1,70 @@
+<!--pages/crossagecompare/crossagecompare.wxml-->
+<view class="motherLayout">
+  <block wx:if="{{!isPhotoBack}}">
+    <!-- 上面一上一下的相册输入框 -->
+    <view class="imageBorder" ontap="upload1pic">
+      <block wx:if="{{!isPhotoUpLoad}}">
+        <view>
+          <image src="../icons/add_icon.png" class="imageSelf"></image>
+        </view>
+        <view>
+          <text>请放入需要添加皱纹的原图</text>
+        </view>
+        <view>
+          <text>图片需要含有人脸哦~</text>
+        </view>
+      </block>
+      <block wx:else>
+        <image src="{{isPhotoUpLoad}}" mode="aspectFit"></image>
+      </block>
+    </view>
+    <view class="blank"></view>
+    <!-- 提示语 -->
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>请在上方上传待处理图片</text>
+    </view>
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>图片必须包含人像</text>
+    </view>
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>建议上传"证件照"级别的大图哦~</text>
+    </view>
+    <view class="blank"></view>
+    <!-- 提交按钮 -->
+    <view>
+      <button class='button' bindtap="startCompare">开始处理</button>
+    </view>
+  </block>
+
+  <!-- 小程序返回图片 -->
+  <block wx:else>
+    <!-- 总览信息 -->
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>如下是皱纹细节内容：</text>
+    </view>
+        <view class="blank"></view>
+    <view class="imageBorder" ontap="upload1pic">
+      <image src="{{pic_base64}}" mode="aspectFit"></image>
+    </view>
+    <view class="blank"></view>
+
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>皱纹信息放大预览与比较：</text>
+    </view>
+      <view class="blank"></view>
+    <view class="imageBorder1" ontap="upload1pic">
+      <image src="{{isPhotoUpLoad}}" mode="widthFix"></image>
+      <text>处理前</text>
+    </view>
+    <view class="imageBorder1" ontap="upload1pic">
+      <image src="{{pic_base64}}" mode="widthFix"></image>
+      <text>处理后</text>
+    </view>
+    <view class="blank"></view>
+  </block>
+</view>

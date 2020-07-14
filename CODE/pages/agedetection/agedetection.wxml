@@ -1,0 +1,83 @@
+<!--pages/crossagecompare/crossagecompare.wxml-->
+<view class="motherLayout">
+  <block wx:if="{{!isPhotoBack}}">
+    <!-- 上面一上一下的相册输入框 -->
+    <view class="imageBorder" ontap="upload1pic">
+      <block wx:if="{{!isPhotoUpLoad}}">
+        <view>
+          <image src="../icons/add_icon.png" class="imageSelf"></image>
+        </view>
+        <view>
+          <text>待检测图片</text>
+        </view>
+      </block>
+      <block wx:else>
+        <image src="{{isPhotoUpLoad}}" mode="aspectFit"></image>
+      </block>
+    </view>
+    <!-- 提示语 -->
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>请在上方上传待监测图片</text>
+    </view>
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>图片必须包含人像</text>
+    </view>
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>图片中可以含有多张人脸</text>
+    </view>
+    <view class="blank"></view>
+    <!-- 提交按钮 -->
+    <view>
+      <button class='button' bindtap="startCompare">开始监测</button>
+    </view>
+  </block>
+
+  <!-- 小程序返回图片 -->
+  <block wx:else>
+    <!-- 总览信息 -->
+    <view class="hintRow">
+      <view class="dot"></view>
+      <text>一共检测到人数：</text>
+      <text style="color: red;font-size: 1.2em;">{{people_in_pic}}</text>
+      <text>人</text>
+    </view>
+    <view class="imageBorder" ontap="upload1pic">
+      <image src="{{total_pic}}" mode="aspectFit"></image>
+    </view>
+    <view class="blank"></view>
+
+    <!-- 每一个人头的判定 -->
+    <block view wx:for="{{pic_base64}}" wx:for-index="idx" wx:for-item="item">
+      <view class="hintRow">
+        <view class="dot"></view>
+        <text>年龄最可能在</text>
+        <text style="color: red;font-size: 1.2em;">{{item[1][0]}}</text>
+        <text>区间内</text>
+      </view>
+      <view class="hintRow">
+        <view class="dot"></view>
+        <text>置信度为:</text>
+        <text style="color: red;font-size: 1.2em;">{{item[1][1]}}</text>
+      </view>
+      <view class="hintRow">
+        <view class="dot"></view>
+        <text>第二可能在</text>
+        <text style="color: red;font-size: 1.2em;">{{item[1][2]}}</text>
+        <text>区间内</text>
+      </view>
+      <view class="hintRow">
+        <view class="dot"></view>
+        <text>置信度为:</text>
+        <text style="color: red;font-size: 1.2em;">{{item[1][3]}}</text>
+      </view>
+      <view class="imageBorder" ontap="upload2pic">
+        <image src="{{item[0]}}" mode="aspectFit"></image>
+      </view>
+      <view class="blank"></view>
+    </block>
+
+  </block>
+</view>

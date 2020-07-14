@@ -1,0 +1,60 @@
+/* pages/crossagecompare/crossagecompare.wxss */
+page{
+  height: 100%;
+}
+.motherLayout{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30rpx;
+}
+.imageBorder{
+  border-style: dashed;
+  border-radius: 30rpx;
+  border-color:#09bb07;  
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        
+  align-items:center;  
+}
+.imageBorder1{
+  border-style: dashed;
+  border-radius: 30rpx;
+  border-color:#09bb07;  
+  height: 800rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;        
+  align-items:center;  
+}
+.imageSelf{
+  width:100rpx;
+  height:100rpx;
+}
+
+.dot{
+  height: 10rpx;
+  width: 10rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  background-color: #09bb07;
+  border-radius: 10rpx;
+  border-color: #09bb07;
+  border-style: solid
+}
+.hintRow{
+  display: flex;
+  margin-top:15rpx;
+}
+.hintStyle{
+  font-weight: bold;
+}
+.button{
+  width: 60%;
+  background-color: #09bb07;
+  color: white;
+}
+.blank{
+  margin: 30rpx;
+}

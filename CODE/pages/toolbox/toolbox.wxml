@@ -1,0 +1,134 @@
+<!-- 工具箱界面 -->
+<!-- 风格迁移主框体 -->
+<view>
+  <!-- 六宫格功能区 -->
+  <view style="padding:30rpx;">
+    <!-- 两宫格第一行 -->
+    <view class="two-block" style="margin-bottom: 20rpx;">
+      <!-- 功能1 -->
+      <navigator url="../crossagecompare/crossagecompare">
+        <view class="functionblock" style="background-color: #ffcccd;">
+          <!--左面的部分文字 -->
+
+          <view class="functionblocktest" ontap>
+            <view style="padding-left:20rpx;">
+              <text>跨龄人脸比对</text>
+            </view>
+            <view style="padding-left:20rpx;">
+              <text class="lightText">艺术蒙版快速用</text>
+            </view>
+          </view>
+          <!-- 右面部分图片 -->
+          <view>
+            <image src="../icons/function_test.png" mode="aspectFit" style="width:130rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+      <!-- 功能2 -->
+      <navigator url="../styletransfer/styletransfer">
+        <view class="functionblock" style="background-color: #fecc9d;">
+          <!--左面的部分文字 -->
+          <view class="functionblocktest">
+            <view style="padding-left:20rpx;">
+              <text>人脸风格迁移</text>
+            </view>
+            <view style="padding-left:20rpx;">
+              <text class="lightText">看不一样的自己</text>
+            </view>
+          </view>
+          <!-- 右面部分图片 -->
+          <view>
+            <image src="../icons/function_test.png" mode="aspectFit" style="width:130rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <!-- 两宫格第二行 -->
+    <view class="two-block" style="margin-bottom: 20rpx;">
+      <!-- 功能3 -->
+      <navigator url="../agedetection/agedetection">
+        <view class="functionblock" style="background-color: #ccccfd;">
+          <!--左面的部分文字 -->
+          <view class="functionblocktest">
+            <view style="padding-left:20rpx;">
+              <text>颜龄监测</text>
+            </view>
+            <view style="padding-left:20rpx;">
+              <text class="lightText">自己到底多大</text>
+            </view>
+          </view>
+          <!-- 右面部分图片 -->
+          <view>
+            <image src="../icons/function_test.png" mode="aspectFit" style="width:130rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+      <!-- 功能4 -->
+      <view class="functionblock" style="background-color: #ff7777;" bindtap='changeurl'>
+        <!--左面的部分文字 -->
+        <view class="functionblocktest">
+          <view style="padding-left:20rpx;">
+            <text>团圆系统</text>
+          </view>
+          <view style="padding-left:20rpx;">
+            <text class="lightText">寻找走失人员</text>
+          </view>
+        </view>
+        <!-- 右面部分图片 -->
+        <view>
+          <image src="../icons/function_test.png" mode="aspectFit" style="width:130rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 两宫格第三行 -->
+    <view class="two-block">
+      <!-- 功能5 -->
+      <navigator url="../wrinkle/wrinkle">
+
+        <view class="functionblock" style="background-color: #bbeece;">
+          <!--左面的部分文字 -->
+          <view class="functionblocktest">
+            <view style="padding-left:20rpx;">
+              <text>皱纹融合</text>
+            </view>
+            <view style="padding-left:20rpx;">
+              <text class="lightText">日安家皱纹信息</text>
+            </view>
+          </view>
+          <!-- 右面部分图片 -->
+          <view>
+            <image src="../icons/function_test.png" mode="aspectFit" style="width:130rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+      <!-- 功能6 -->
+      <navigator url="../faceaging/faceaging">
+        <view class="functionblock" style="background-color: #99cccc;">
+          <!--左面的部分文字 -->
+          <view class="functionblocktest">
+            <view style="padding-left:20rpx;">
+              <text>人脸老化</text>
+            </view>
+            <view style="padding-left:20rpx;">
+              <text class="lightText">遇见自己的未来</text>
+            </view>
+          </view>
+          <!-- 右面部分图片 -->
+          <view>
+            <image src="../icons/function_test.png" mode="aspectFit" style="width:130rpx;height:200rpx;border-top-right-radius:10rpx;border-bottom-right-radius:10rpx;"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 剩余的块 -->
+  <view style="padding:30rpx;">
+    <text style="font-weight: bold;">热门应用</text>
+    <image src="../icons/function1.jpg" class="videosetting" mode="aspectFit" bindtap='changeurl'></image>
+    <navigator url="../crossagecompare/crossagecompare">
+      <image src="../icons/function2.jpg" class="videosetting" mode="aspectFit"></image>
+    </navigator>
+  </view>
+</view>
